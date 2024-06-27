@@ -1,0 +1,30 @@
+services:
+  geth: # this is Optimism's geth client
+    image: us-docker.pkg.dev/oplabs-tools-artifacts/images/op-geth:v1.101311.0
+    ports:
+      - 8545:8545       # RPC (kripa432)
+      - 8546:8546       # websocket (kripa432)
+      - 30303:30303
+    entrypoint:
+      - geth
+    command:
+      - --op-network=op-mainnet
+      - --datadir=/data
+      - --authrpc.jwtsecret=/tmp/jwt.txt
+      - --authrpc.addr=0.0.0.0
+      - --authrpc.port=8551
+      - --authrpc.vhosts="*"
+      - --http
+      - --http.addr=0.0.0.0
+      - --http.port=8545
+      - --http.api=debug,eth,net,engine
+      - --ws 
+      - --ws.addr=0.0.0.0
+      - --ws.port=8546
+      - --ws.api=debug,eth,net,engine,
+      - --syncmode=snap
+      - --snapshot=true
+      - --gcmode=archive
+    volumes:
+      - ./data:/data
+      - ./jwt.txt:/tmp/jwt.txt

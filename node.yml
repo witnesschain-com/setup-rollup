@@ -1,0 +1,24 @@
+services:
+  node:
+    image: us-docker.pkg.dev/oplabs-tools-artifacts/images/op-node:v1.7.3
+    depends_on:
+      - geth
+    ports:
+      - 9545:9545
+    entrypoint:
+      - op-node
+    command:
+      - --network=op-mainnet
+      - --l1=<address>:<port>
+      - --l1.beacon=<address>:<port>
+      - --l2=ws://geth:8551
+      - --l2.jwt-secret=/tmp/jwt.txt
+      - --rpc.addr=0.0.0.0
+      - --rpc.port=9545
+      - --l1.max-concurrency=30
+      - --syncmode=execution-layer
+      - --rollup.halt=major
+      - --rollup.load-protocol-versions=true
+      - --log.level=info
+    volumes:
+      - ./jwt.txt:/tmp/jwt.txt
