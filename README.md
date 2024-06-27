@@ -8,13 +8,13 @@ we will be using the docker compose utility to setup watchtowers.
 ## Step 1: Clone the setup repository
 
 First, lets clone the 
-[setup-rollup](https://github.com/kaleidoscope-blockchain/setup-rollup) 
+[setup-rollup](https://github.com/witnesschain-com/setup-rollup) 
 repository that contains docker compose YAML file.
 
 **Note**: The disk must have at least 2 TB of free disk space. 
 
 ```
-git clone https://github.com/kaleidoscope-blockchain/setup-rollup.git
+git clone https://github.com/witnesschain-com/setup-rollup.git
 ```
 
 ## Step 2: Configure the network parameters
