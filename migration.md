@@ -1,11 +1,11 @@
 ### Migration of rollup node from archive to full node
 
-Rollups can reduce storage cost by changing rollup node type. An 
-`archive` node stores the full history of state changes along with at 
-each block. In contrast, a full node stores state of blockchain only for 
-the recent 128 blocks. Therefore, moving from `archive` node to `full` 
-node will significantly reduces the storage needs for running rollup 
-nodes.
+Rollup node operators can reduce storage cost by changing the type of 
+rollup node. An `archive` node stores the full state history for each 
+block since genesis block.  In contrast, a full node stores the state 
+only for the recent 128 blocks.  Therefore, moving from `archive` node 
+to `full` node will significantly reduces the storage needs for running 
+rollup nodes.
 
 To migrate the rollup node from `archive` node to `full` node, take the 
 following steps:
